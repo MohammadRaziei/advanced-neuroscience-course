@@ -17,8 +17,7 @@ trials = 1000;
 fr = 100;
 
 [spikeMat,tVec] = poissonSpikeGen(fr,1,trials,0.001);
-transposed_spikeMat = spikeMat';
-histogram(sum(transposed_spikeMat))
+histogram(sum(spikeMat,2))
 
 %% part c
 clc
