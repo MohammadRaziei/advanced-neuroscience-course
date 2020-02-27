@@ -9,14 +9,14 @@ vr = 0;
 Vth = 15;
 RI = 20;
 v = zeros(1,tSim/dt);
-taw_m = 0.005;
+tau_m = 0.005;
 
 for i = 1:(tSim/dt)-1
     
-   dv =  (dt*(-v(i)+RI))/taw_m;
+   dv =  (dt*(-v(i)+RI))/tau_m;
    v(i+1) = v(i)+dv;
    if v(i+1) >= Vth
-      v(i) = 100;
+      v(i) = 120;
       v(i+1) = vr; 
    end
     
@@ -35,7 +35,7 @@ Vth = 20e-3;
 Vr = -30e-3;
 % Vr = 0;
 tsim = 5;
-taw_m = 5e-3;
+tau_m = 5e-3;
 t_peak = 1.5e-3;
 [spikeMat,tVec] = poissonSpikeGen(fr,tsim,1,dt);
 delta_index = find(spikeMat);
@@ -55,14 +55,14 @@ R = 1;numberOfFiring = 0;
 
 start_idx = 1;
 for i = 1:length(t)
-    initial = Vr*exp(-(t(i) - t0)/taw_m);
+    initial = Vr*exp(-(t(i) - t0)/tau_m);
     sumation = 0;
 %     s = 0;
     for s = 0:dt:(t(i)-t0)
         idx = 1+round((t(i)-s)/dt);
-        sumation = sumation + exp(-s/taw_m).*I(idx) * dt; 
+        sumation = sumation + exp(-s/tau_m).*I(idx) * dt; 
     end
-    v(i) = initial + R/taw_m * sumation;
+    v(i) = initial + R/tau_m * sumation;
     if(v(i) >= Vth)
         v(i) = 0.45 ;
         t0 = t(i+1);
@@ -87,7 +87,7 @@ plot((0:length(spikeMat)-1)*dt, 0.1*spikeMat,'color',[0,0,0]+0.9);
 hold on;plotts(I,dt,'g'); 
 
 figure; histogram(integrate_mat);
-%% 
+%% part D
 
 clc
 clear;
@@ -100,13 +100,15 @@ Vth = 20e-3;
 Vr = -30e-3;
 % Vr = 0;
 tsim = 5;
-taw_m = 5e-3;
+tau_m = 5e-3;
 t_peak = 1.5e-3;
 [spikeMat,tVec] = poissonSpikeGen(fr,tsim,1,dt);
-delta_index = find(spikeMat);
-% delta_index_k = delta_index(1:k);
-% t0 = delta_index_k(end)*dt;
-% v =@(t) vr*exp(-(t-t0)/taw_m)+(R/taw_m)*sum()
+delta_index = find(spikeMat); spikeMat = double(spikeMat);
+n_spikes = length(delta_index);
+ie_ratio = 0.2;
+ipsp_idx = randsample(n_spikes ,floor(ie_ratio*n_spikes));
+spikeMat(delta_index(ipsp_idx)) = -1;
+% plot(spikeMat)
 run lambda_functions
 %
 t = 0:dt:tsim-dt;
@@ -117,30 +119,31 @@ Is = Is(1:200);
 I = filter(Is,1,spikeMat);
 % I = conv(Is,spikeMat);
 R = 1;numberOfFiring = 0; 
-
+%
 start_idx = 1;
 for i = 1:length(t)
-    initial = Vr*exp(-(t(i) - t0)/taw_m);
+    initial = Vr*exp(-(t(i) - t0)/tau_m);
     sumation = 0;
 %     s = 0;
     for s = 0:dt:(t(i)-t0)
         idx = 1+round((t(i)-s)/dt);
-        sumation = sumation + exp(-s/taw_m).*I(idx) * dt; 
+        sumation = sumation + exp(-s/tau_m).*I(idx) * dt; 
     end
-    v(i) = initial + R/taw_m * sumation;
+    v(i) = initial + R/tau_m * sumation;
     if(v(i) >= Vth)
         v(i) = 0.45 ;
         t0 = t(i+1);
         
         numberOfFiring = numberOfFiring + 1;
-        integrate_index(numberOfFiring) = i;
+%         integrate_index(numberOfFiring) = i;
         end_idx = i;
         integrate_mat(numberOfFiring) = sum(spikeMat(start_idx:end_idx));
-        start_idx = i;         
+        integrate_mat_idx(1:2,numberOfFiring) = [start_idx; end_idx]; 
+        start_idx = i+1;         
     end
 end
 v = v - 50e-3;
-%
+%%
 figure;
 subplot(4,1,1:3);
 hold on;
@@ -151,6 +154,6 @@ subplot(414);
 plot((0:length(spikeMat)-1)*dt, 0.1*spikeMat,'color',[0,0,0]+0.9);
 hold on;plotts(I,dt,'g'); 
 
-figure; histogram(integrate_mat);
+figure; histogram(integrate_mat,100);
 
 
