@@ -1,0 +1,35 @@
+.center *{
+    margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+
+
+/* begin <caption> */
+table[summary]:after {
+content: "Table " counter(table) ":  " attr(summary);
+counter-increment: table;
+display: table-caption;
+caption-side: bottom;
+font-size: 10px;
+font-style: italic;
+white-space: nowrap;
+margin-top: 5px;
+margin-bottom: 20px;
+}
+
+table[title]:before {
+display: table-caption;
+caption-side: top;
+content: attr(title);
+font-size: 12px;
+font-weight: bold;
+white-space: nowrap;
+}
+
+figcaption {
+    display: block;
+    font-size: 80%;
+    margin-bottom: 1.5em;
+}
+/* end <caption> */

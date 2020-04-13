@@ -1,0 +1,12 @@
+site_name: Neuroscience
+nav:
+    - Home: index.md
+#    - HomeWorks:
+    - Homework 4: report-hw04/readme.md
+    - Homework 5: report-hw05/readme.md
+    - About: about.md
+theme: #readthedocs
+    name: 'rtd-dropdown'
+use_directory_urls: false
+extra_css: 
+    - custom.css
