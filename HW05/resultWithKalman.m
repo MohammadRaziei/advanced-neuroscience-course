@@ -1,4 +1,4 @@
-function resultForParadigm(u,r,preTrainLen, TrainLen, name, sigma2, sigma0, frameRate)
+function resultWithKalman(u,r,preTrainLen, TrainLen, name, sigma2, sigma0, frameRate)
 % preTrainLen = 20;
 % TrainLen = 20;
 fileName = fullfile('results' , name);
