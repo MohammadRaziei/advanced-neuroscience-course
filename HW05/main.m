@@ -62,10 +62,15 @@ title('Overshadow');
 preTrainLen = 10; TrainLen = 20;
 u = [repmat([1;0],1,preTrainLen), repmat([1;1],1,TrainLen)];
 r = [ones(1,preTrainLen), ones(1,TrainLen)];
-resultWithKalman(u,r,preTrainLen, TrainLen, 'Blocking', 0.01, 0.6, 5);
+resultWithKalman(u,r,preTrainLen, TrainLen, 'Blocking', 0.0, 0.6, 5);
 
 %% Unblocking with kalmanFilter
 preTrainLen = 20; TrainLen = 20;
-r = [ones(1,preTrainLen), 2*ones(1,TrainLen)];
 u = [repmat([1;0],1,preTrainLen), repmat([1;1],1,TrainLen)];
+r = [ones(1,preTrainLen), 2*ones(1,TrainLen)];
 resultWithKalman(u,r,preTrainLen, TrainLen, 'Unblocking', 0.0, 0.6, 5);
+%% backward blocking with kalmanFilter
+preTrainLen = 20; TrainLen = 20;
+u = [ones(2,preTrainLen), repmat([1;0],1,TrainLen)];
+r = [ones(1,preTrainLen), ones(1,TrainLen)];
+resultWithKalman(u,r,preTrainLen, TrainLen, 'backward blocking', 0.0, 0.6, 5);
