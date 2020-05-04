@@ -10,7 +10,10 @@ function env_render(env,RL, video)
         end
 
     subplot(122);
-        heatmap(RL.V); caxis([-1,1]*2);  %colormap('gray');
+%         heatmap(RL.V); caxis([-1,1]*2);  %colormap('gray');
+        imagesc(RL.V); caxis([-1,1]*3); colorbar %colormap('gray'); 
+        grid_on(0.5:env.dimSize+0.5,0.5:env.dimSize+0.5); hold on;
+%         quiver(x,y,RL.V,RL.V)
         if not(isempty(video.title2))
            title(video.title2);
         end
