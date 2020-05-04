@@ -74,3 +74,12 @@ preTrainLen = 20; TrainLen = 20;
 u = [ones(2,preTrainLen), repmat([1;0],1,TrainLen)];
 r = [ones(1,preTrainLen), ones(1,TrainLen)];
 resultWithKalman(u,r,preTrainLen, TrainLen, 'backward blocking', 0.0, 0.6, 5);
+
+
+
+%% 
+%% backward blocking with kalmanFilter
+preTrainLen = 20; TrainLen = 20;
+u = [ones(1,preTrainLen), ones(1,TrainLen)];
+r = [ones(1,preTrainLen), -ones(1,TrainLen)];
+resultWithKalman(u,r,preTrainLen, TrainLen, 'part5', 0.01, 0.6, 5);

@@ -1,6 +1,8 @@
 # Homework 5
 
+To see [extra-report](https://github.com/MohammadRaziei/advanced-neuroscience-course/raw/master/HW05/extra-report.pdf) for explanatory information about this howework, click bellow button.
 
+<a type="button" class="btn btn-primary" href="https://github.com/MohammadRaziei/advanced-neuroscience-course/tree/master/HW05/extra-report.pdf"> extra-report.pdf </a>
 
 
 ## Part A: RW rule

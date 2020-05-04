@@ -14,7 +14,7 @@ RL.policy = env.mask./repmat(sum(env.mask,3),1,1,4);
 
 %%
 save_all_s = cell(1,numEpisodes);
-save_all_s
+
 %%
 % video = video_make('OneTarget_v2');
 video.title2 = 'value map';
