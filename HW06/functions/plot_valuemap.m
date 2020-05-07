@@ -8,6 +8,5 @@ function plot_valuemap(save_V, tr)
     title(['value map after ' num2str(tr) ' episodes'])
 %     set(h,'AutoScale','on', 'AutoScaleFactor', 3)
     hold off
-%     title([num2str(txt(i+2)) ' Trials'])
     colorbar
 end

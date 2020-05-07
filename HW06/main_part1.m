@@ -17,7 +17,7 @@ save_path = cell(1,numEpisodes);
 save_V = zeros(env.dimSize,env.dimSize ,numEpisodes);
 save_Start = zeros(2,numEpisodes);
 save_numSteps = zeros(1,numEpisodes);
-
+save_optimalPath = zeros(1,numEpisodes);
 %%
 % video = video_make('OneTarget_v2');
 video.title2 = 'value map';
@@ -43,14 +43,12 @@ for episode = 1:numEpisodes
        all_p(:,it) = RL.policy;
        all_a(:,it) = action;
 
-        %% update states
-        s1 = o1; s2 = o2; env.s1 = s1; env.s2 = s2;
-
+       %% update states
+       s1 = o1; s2 = o2; env.s1 = s1; env.s2 = s2;
 %        env_render(env,RL,video); 
-
-        if env.done
-            break;
-        end
+       if env.done
+           break;
+       end
     end
     %% After finishing the episode
     %% TD(0)
@@ -69,19 +67,38 @@ for episode = 1:numEpisodes
     save_V(:,:,episode) = RL.V;
     save_Start(:,episode) = env.Start;
     save_numSteps(episode) = env.numSteps;
+    save_optimalPath(episode) = env_calc_optimalPath(env);
     %% verbose
     disp(['episode = ' num2str(episode) ' --> ' num2str(it)])
 end
 beep
 % close(video.stream);
+
 %% Results
+%% plot number of steps
 figure('Color','w','ToolBar','none','MenuBar','none');
-plot(save_numSteps); ylim([0,1000]); title('number of steps');
+plot(save_numSteps); title('number of steps');
+ylim([0,1000]); xlabel('episode');
+
+%% plot optimal path ratio
+figure('Color','w','ToolBar','none','MenuBar','none');
+optimalPathRatio = save_optimalPath ./ save_numSteps;
+optimalPathRatio = smooth(optimalPathRatio,100);
+plot(optimalPathRatio); title('optimal path ratio');
+ylim([0 1]); xlabel('episode');
+
 %% path plot:
-figure; plot_path(env,save_path,save_Start,10000)
+figure('Color','w','ToolBar','none','MenuBar','none');
+trials = [1 10 100 1000];
+for  i = 1:length(trials)
+    subplot(2,2,i);
+    plot_path(env,save_path,save_Start,trials(i))
+end
+figure('Color','w','ToolBar','none','MenuBar','none');
+plot_path(env,save_path,save_Start,10000)
 
 
-%%
+%% plot path
 figure('Color','w','ToolBar','none','MenuBar','none');%, 'units','normalized','outerposition',[0.1 0.2 0.8 0.7]);
 trials = [1 10 100 1000];
 for  i = 1:length(trials)
