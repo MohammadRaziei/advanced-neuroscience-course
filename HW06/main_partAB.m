@@ -76,7 +76,7 @@ beep
 fig = figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.1 0.2 0.8 0.5]);
 plot(save_numSteps); title('number of steps');
 ylim([0,1000]); xlabel('episode');
-save_figure(fig,['partAB_numSteps_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
+save_figure(fig,['results/partAB_numSteps_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
 %% plot optimal path ratio
 fig = figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.1 0.2 0.8 0.5]); hold on
 optimalPathRatio = save_optimalPath ./ save_numSteps;
@@ -125,5 +125,11 @@ for  i = 1:length(trials)
 end
 save_figure(fig,['results/partAB_pathLast_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
 
-
-
+%%
+try close(video.stream); catch,end
+video = video_make(['results/partAB_pathSimulated_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda)]);
+for sim_ep = [1 10 100 1000 9970 9980 9990 10000]
+    video.title1 = ['episode = ' num2str(sim_ep)];
+    sim_env_render(env,video,save_path{sim_ep});
+end
+close(video.stream);
