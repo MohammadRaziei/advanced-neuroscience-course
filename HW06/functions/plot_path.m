@@ -1,13 +1,14 @@
-function plot_path(env,save_path,save_Start,k)
+function plot_path(env,save_path,k)
     map_path = ones(env.dimSize,env.dimSize);
     ind = save_path{k}';
+    start = ind(:,1);
     d_ind = diff(ind,1,2);
     for i = 1:size(ind,2)
         map_path(ind(1,i),ind(2,i)) = 0.95;
     end
     map_path(env.Target(1),env.Target(2)) = 0;
     map_path(env.Hole(1),env.Hole(2)) = 0.45;
-    map_path(save_Start(1,k),save_Start(2,k)) = 0.8;
+    map_path(start(1),start(2)) = 0.8;
     imagesc(map_path); colormap('gray');
     title(['episode = ' num2str(k)])
     hold on
