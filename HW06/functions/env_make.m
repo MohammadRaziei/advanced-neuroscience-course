@@ -3,6 +3,7 @@ function env = env_make()
     dimSize = 10;
     env.dimSize = dimSize;
     env.Target = [3,3];
+	env.Target2 = [0 0];
     env.Hole = [5,7];
     env.Start = [9,5];
     

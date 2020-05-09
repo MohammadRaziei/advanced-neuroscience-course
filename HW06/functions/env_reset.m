@@ -2,7 +2,7 @@ function [s1,s2,env] = env_reset(env)
    env.done = false;
    while true
        start = randi(env.dimSize,1,2);
-       if isequal(start,env.Target) || isequal(start,env.Hole)
+       if isequal(start,env.Target) || isequal(start,env.Hole) || isequal(start,env.Target2)
            continue;
        else
            break;

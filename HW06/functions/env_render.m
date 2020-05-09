@@ -1,6 +1,6 @@
 function env_render(env,RL, video)
     map = env.map;
-    map(env.s1,env.s2) = env.color_agent;
+    map(env.s1,env.s2) = (map(env.s1,env.s2) + env.color_agent)/2;
     pause(0.01); clf;
     subplot(121);
         imagesc(map); colormap('gray');

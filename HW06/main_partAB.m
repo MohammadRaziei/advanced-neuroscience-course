@@ -6,7 +6,7 @@ maxNumSteps = 10000;
 %% RL
 RL.beta = 15; 
 RL.eta = 0.2;
-RL.epsilon = 0.05;
+RL.epsilon = 0.1;
 RL.gamma = 0.95;
 RL.lambda = 0.8;
 RL.m_act = zeros(size(env.mask));
@@ -107,26 +107,24 @@ for  i = 1:length(trials)
     plot_path(env,save_path,trials(i))
 end
 save_figure(fig,['results/partAB_pathPlotLast_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
-
-
-%% plot path
+%% plot valuemap
 fig = figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.1 0 0.8 1]);
 trials = [1 10 100 1000];
 for  i = 1:length(trials)
     subplot(2,2,i);
     plot_valuemap(save_V, trials(i))
 end
-save_figure(fig,['results/partAB_pathAll_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
+save_figure(fig,['results/partAB_valuemapAll_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
 fig = figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.1 0 0.8 1]);
 trials = [9970 9980 9990 10000];
 for  i = 1:length(trials)
     subplot(2,2,i);
     plot_valuemap(save_V, trials(i))
 end
-save_figure(fig,['results/partAB_pathLast_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
+save_figure(fig,['results/partAB_valuemapLast_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
 
 %%
-try close(video.stream); catch,end
+try close(video.stream); close(video.fig); catch,end
 video = video_make(['results/partAB_pathSimulated_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda)]);
 for sim_ep = [1 10 100 1000 9970 9980 9990 10000]
     video.title1 = ['episode = ' num2str(sim_ep)];

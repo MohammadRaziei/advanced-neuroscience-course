@@ -4,7 +4,4 @@ video.name = name;
 video.stream = VideoWriter(video.name,'MPEG-4'); %open video file
 video.stream.FrameRate = 5;  
 open(video.stream)
-
-
-
 end
