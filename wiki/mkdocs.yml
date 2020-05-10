@@ -4,6 +4,7 @@ nav:
 #    - HomeWorks:
     - Homework 4: report-hw04/readme.md
     - Homework 5: report-hw05/readme.md
+    - Homework 6: report-hw06/readme.md
     - About: about.md
 theme: #readthedocs
     name: 'rtd-dropdown'

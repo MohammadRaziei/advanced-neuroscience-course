@@ -5,7 +5,7 @@ numEpisodes = 10000;
 maxNumSteps = 10000;
 %% RL
 RL.beta = 2; 
-RL.eta = 0.05;
+RL.eta = 0.2;
 RL.epsilon = 0.1;
 RL.gamma = 0.95;
 RL.lambda = 0.8;
@@ -91,21 +91,30 @@ beep
 %% plot number of steps
 fig = figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.1 0.2 0.8 0.5]);
 plot(save_numSteps); title('number of steps');
-ylim([0,1000]); xlabel('episode');
+ylim([0,1000]); xlabel('episode'); x = 1:length(save_numSteps);
+[B,f] = fit_exponential(x, save_numSteps,[50;0;10]);
+text(4000, 105, sprintf('f(x) = %.1f e^{(%.3e) x}%+.1f', B));
+hold on; plot(x, f(B,x), '-r')
 save_figure(fig,['results/partE_numSteps_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
 %% plot optimal path ratio
 fig = figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.1 0.2 0.8 0.5]); hold on
 optimalPathRatio = save_optimalPath ./ save_numSteps;
-plot(optimalPathRatio,'Color',0.8*ones(1,3)); 
+plot(optimalPathRatio,'Color',0.8*ones(1,3));
+x = 1:length(optimalPathRatio); [B,f] = fit_exponential(x, optimalPathRatio,[-1;0;1]);
+hold on; plot(x, f(B,x), '-y','LineWidth',2)
+text(4000, 0.7, sprintf('f(x) = %.1f e^{(%.3e) x}%+.1f', B),'Color','r','FontSize',12);
 optimalPathRatio = smooth(optimalPathRatio,100);
-plot(optimalPathRatio); title('optimal path ratio');
-ylim([0 1.2]); xlabel('episode');
+plot(optimalPathRatio,'LineWidth',1); title('optimal path ratio');
+ylim([0 1.2]); xlabel('episode'); 
 save_figure(fig,['results/partE_optimalPathRatio_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
 %% plot optimal path differance
 fig = figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.1 0.2 0.8 0.5]);
 optimalPathDiff = abs(save_numSteps - save_optimalPath);
 plot(optimalPathDiff); title('plot optimal path differance');
-ylim([0 400]); xlabel('episode');
+ylim([0,400]); xlabel('episode'); x = 1:length(optimalPathDiff);
+[B,f] = fit_exponential(x, optimalPathDiff,[50;0;10]);
+text(4000, 40, sprintf('f(x) = %.1f e^{(%.3e) x}%+.1f', B));
+hold on; plot(x, f(B,x), '-r')
 save_figure(fig,['results/partE_optimalPathDiff_' 'beta' num2str(RL.beta) '_eps' num2str(RL.epsilon) '_gamma' num2str(RL.gamma) '_lambda' num2str(RL.lambda) '.png']);
 
 %% path plot:
