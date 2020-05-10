@@ -100,19 +100,19 @@ beep; pause(1); beep; pause(1); beep; pause(1); beep; pause(1); beep;
 save save_B save_B_numSteps save_B_ratio save_B_diff
 %%
 figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.15 0 0.65 1]);
-imagesc(save_B_diff(:,:,2)); title('Learning Delay using number of steps');
+imagesc(save_B_diff(:,:,2)); title('Learning Delay using optimal-path-differance'); %colormap jet
 xlabel('epsilon(\epsilon)'); xticklabels(cellstr(string(num2str(eps_list','%.3f'))))
 ylabel('gamma(\gamma)'); yticklabels(cellstr(string(num2str(gamma_list','%.3f'))))
 save_figure(gcf, 'results/partC_heatmap_B2_diff.png')
 %%
 figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.15 0 0.65 1]);
-imagesc(save_B_ratio(:,:,2)); title('Learning Delay using optimal-path-ratio');
+imagesc(save_B_ratio(:,:,2)); title('Learning Delay using optimal-path-ratio'); %colormap jet
 xlabel('epsilon(\epsilon)'); xticklabels(cellstr(string(num2str(eps_list','%.3f'))))
 ylabel('gamma(\gamma)'); yticklabels(cellstr(string(num2str(gamma_list','%.3f'))))
 save_figure(gcf, 'results/partC_heatmap_B2_ratio.png')
 %%
 figure('Color','w','ToolBar','none','MenuBar','none', 'units','normalized','outerposition',[0.15 0 0.65 1]);
-imagesc(save_B_numSteps(:,:,2)); title('Learning Delay using optimal-path-differance');
+imagesc(save_B_numSteps(:,:,2)); title('Learning Delay using number of steps'); %colormap jet 
 xlabel('epsilon(\epsilon)'); xticklabels(cellstr(string(num2str(eps_list','%.3f'))))
 ylabel('gamma(\gamma)'); yticklabels(cellstr(string(num2str(gamma_list','%.3f'))))
 save_figure(gcf, 'results/partC_heatmap_B2_numSteps.png')
