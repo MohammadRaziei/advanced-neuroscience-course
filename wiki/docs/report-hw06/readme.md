@@ -1,4 +1,4 @@
-# Homework 5
+# Homework 6
 
 
 
@@ -166,19 +166,20 @@ You can find more figures (that are changed their parameters) by clicking bellow
 ## Part C : 
 
 <figure>
-    <img  src="results/heatmap_B2_numSteps.png" width=100%/>
+    <img  src="results/partC_heatmap_B2_numSteps.png" width=100%/>
     <figcaption>Fig : Learning Delay using number of steps</figcaption>
 </figure>
 
 <figure>
-    <img  src="results/heatmap_B2_diff.png" width=100%/>
+    <img  src="results/partC_heatmap_B2_diff.png" width=100%/>
     <figcaption>Fig : Learning Delay using optimal-path-differance</figcaption>
 </figure>
 
 <figure>
-    <img  src="results/heatmap_B2_ratio.png" width=100%/>
+    <img  src="results/partC_heatmap_B2_ratio.png" width=100%/>
     <figcaption>Fig : Learning Delay using optimal-path-ratio</figcaption>
 </figure>
+
 
 
 
