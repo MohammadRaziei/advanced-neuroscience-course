@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Project Plasticity-STDP - Neuroscience</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../custom.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Project Plasticity-STDP";
+    var mkdocs_page_input_path = "Plasticity-STDP\\Readme.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Neuroscience</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="tocbase current">
+    
+    
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../index.html">Home</a>
+  </li>
+    
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../report-hw04/readme.html">Homework 4</a>
+  </li>
+    
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../report-hw05/readme.html">Homework 5</a>
+  </li>
+    
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../report-hw06/readme.html">Homework 6</a>
+  </li>
+    
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../report-hw07/readme.html">Homework 7</a>
+  </li>
+    
+      
+
+
+  
+    
+    <li class="navtree toctree-l1 page current">
+      <a class="current" href="Readme.html">
+        Project Plasticity-STDP
+      </a>
+    </li>
+    
+      
+
+  <li class="toctree-l1 current with-children">
+    <a href="#plasticity-stdp">
+      Plasticity STDP
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+      
+
+  <li class="toctree-l1">
+    <a href="#part-a">
+      Part A:
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l1">
+    <ul class="subnav-l1 toc-hidden">
+    
+      
+        <li class="toctree-l2">
+          <a class="toctree-l3" href="#part-b">Part B:</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l2">
+    <a href="#part-c">
+      Part C:
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l2">
+    <ul class="subnav-l2 toc-hidden">
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#hebb-rule">Hebb Rule</a>
+        </li>
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#covariance-rule">Covariance Rule</a>
+        </li>
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#bcm-rule">BCM Rule</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+
+  
+    
+      
+
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../about.html">About</a>
+  </li>
+    
+  </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Neuroscience</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Project Plasticity-STDP</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="plasticity-stdp">Plasticity STDP</h1>
+<h1 id="part-a">Part A:</h1>
+<p>In the initial step I create one train of poisson spikes. shown here: </p>
+<p><img src="Results/partA_1-plotRaster.png" width="60%"/></p>
+<p>and calculate its <code>ISI</code> histogram, fano-factor, Cv:</p>
+<p><img src="Results/partA_2-isi.png" width="60%"/></p>
+<table>
+<thead>
+<tr>
+<th align="left">key</th>
+<th align="left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Fano-Factor</td>
+<td align="left">0.91033</td>
+</tr>
+<tr>
+<td align="left">C<sub>v</sub></td>
+<td align="left">0.93536</td>
+</tr>
+</tbody>
+</table>
+<p>I wrote <code>stdp_curve</code> function to calculate synaptic changes.</p>
+<p><img src="Results/partA_3-STDP-curve.png" width="70%"/></p>
+<p>then I illustrate all-to-all scenario for desired results after averaging 30 trails of solution.</p>
+<p><img src="Results/partA_4-func1.png" width="70%"/></p>
+<p><img src="Results/partA_5-func2.png" width="70%"/></p>
+<p>now I changed <code>tau_n</code> and observed that it change in low values of postsynaptic firing-rate.</p>
+<p><img src="Results/partA_6-func3.png" width="70%"/></p>
+<h2 id="part-b">Part B:</h2>
+<p>I chose following parameters:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Number of excitatory</th>
+<th align="center">Number of inhibitory</th>
+<th align="center">Vth</th>
+<th align="center">Vr</th>
+<th align="center">Ve</th>
+<th align="center">Vi</th>
+<th align="center">Vsp</th>
+<th align="center">C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">19</td>
+<td align="center">11</td>
+<td align="center">-50 mv</td>
+<td align="center">-70 mv</td>
+<td align="center">0 mv</td>
+<td align="center">80 mv</td>
+<td align="center">-30 mv</td>
+<td align="center">30e-3</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Without updating <strong>Wi</strong> in time </li>
+</ul>
+<p><img src="Results/partB_1-v.png" width="100%"/></p>
+<p><img src="Results/partB_2-ge-gi.png" width="100%"/></p>
+<ul>
+<li>Just updating <strong>Wi</strong> for the first presynaptic neuron</li>
+</ul>
+<p><img src="Results/partB3_1-v.png" width="100%"/></p>
+<p><img src="Results/partB3_2-ge-gi.png" width="100%"/></p>
+<ul>
+<li>Updating <strong>Wi</strong> for all presynaptic neurons</li>
+</ul>
+<p><img src="Results/partB2_1-v.png" width="100%"/></p>
+<p><img src="Results/partB2_2-ge-gi.png" width="100%"/></p>
+<ul>
+<li>In the case which updating <strong>Wi</strong> for the first presynaptic neuron, we have following graph</li>
+</ul>
+<blockquote>
+<p>I changed inhibitory presynaptic neurons' firing-rate to change postsynaptic firing-rate randomly by multiplying their firing-rates into a parameter named <code>alpha</code> changed from 0.8 to 4.</p>
+</blockquote>
+<p><img src="Results/partB4_postFiringRate.png" width="80%"/></p>
+<p>According to above figure, we can see some kind of saturation when postsynaptic firing-rate is increased. we can also see in low firing-rate a sagittal curve.  </p>
+<h2 id="part-c">Part C:</h2>
+<p>At the first step, I created 1000 paired firing-rate as pre and post synaptic one.  in this case I used <code>mvnrnd</code> matlab command to generate following paired data.</p>
+<p><img src="Results/partC_1-Hebb-u1u2.png" width="40%"/></p>
+<h4 id="hebb-rule">Hebb Rule</h4>
+<p>I set its average on (0,0), then used Hebb Rule. because of instability of this rule we cannot use following formulas. </p>
+<p><img src="Readme/1.png" width="20%"/></p>
+<p>So according to <a href="http://www.gatsby.ucl.ac.uk/~lmate/biblio/dayanabbott.pdf">the paper</a>, I replaced that with auto-correlation form.</p>
+<p><img src="Readme/2.png" width="20%"/></p>
+<p>Where Q is :</p>
+<p><img src="Readme/3.png" width="30%"/></p>
+<p>we can observe that <strong>w</strong> stretches along maximum covariance direction. we notice that if mu is equal to zero, covariance and auto-correlation matrix has the same meaning.</p>
+<p><img src="Results/partC_2-Hebb-w1.png" width="40%"/></p>
+<p>I also illustrated the first principal component that show the maximum covariance direction. so both of them referred to the same thing.</p>
+<p><img src="Results/partC_3-Hebb-pca.png" width="40%"/></p>
+<p>In the next step, I turned its average into (2,2). we can observe that it's been changed.</p>
+<p><img src="Results/partC_4-Hebb-w2.png" width="40%"/></p>
+<h4 id="covariance-rule">Covariance Rule</h4>
+<p>Similar to previous step we must change formulas to get more stability. so I assigned <code>Q = cov(u)</code> in matlab. that's because we chose average of <strong>u</strong> as &theta; (the threshold parameter).</p>
+<p><img src="Results/partC_5-Cov-w1.png" width="40%"/></p>
+<p>we can observe it not sensitive of changing its average.</p>
+<p><img src="Results/partC_6-Cov-w2.png" width="40%"/></p>
+<h4 id="bcm-rule">BCM Rule</h4>
+<p>There is extra formulas to implement in this section:</p>
+<p><img src="Readme/4.png" width="50%"/></p>
+<p>And the results is like bellow:</p>
+<p><img src="Results/partC_7-BCM-w1.png" width="40%"/></p>
+<p><img src="Results/partC_8-BCM-w2.png" width="40%"/></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about.html" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../report-hw07/readme.html" class="btn btn-neutral" title="Homework 7"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../report-hw07/readme.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../about.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
